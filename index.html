@@ -1,149 +1,135 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fizik Projesi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hareket ve Kuvvet Kavramları</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+      color: #fff;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    header {
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
-}
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-body{
-  background:#0f172a;
-  color:#e5e7eb;
-}
+    header p {
+      opacity: 0.85;
+    }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(135deg,#2563eb,#9333ea);
-}
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
 
-.hero h1{
-  font-size:38px;
-  font-weight:700;
-}
+    .card {
+      background: #ffffff;
+      color: #222;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
 
-.hero p{
-  margin-top:15px;
-  font-size:18px;
-  opacity:0.9;
-}
+    .card:hover {
+      transform: translateY(-6px);
+    }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
-}
+    .card h3 {
+      margin-top: 0;
+      color: #f0a500;
+    }
 
-.card{
-  background:#020617;
-  border-radius:20px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card h2{
-  margin-bottom:10px;
-  color:#60a5fa;
-}
-
-.card p{
-  font-size:16px;
-  line-height:1.7;
-}
-
-.footer{
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-  color:#9ca3af;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-  <div>
-    <h1>Hareketin Temel Kavramları</h1>
-    <p>9. Sınıf Fizik Projesi<br>Harun Yahya Yurdakul – 9B / 101</p>
+<header>
+  <h1>Hareket ve Kuvvet</h1>
+  <p>9. Sınıf Fizik – Temel Kavramlar</p>
+</header>
+
+<section class="container">
+
+  <div class="card">
+    <h3>Hız</h3>
+    <p>Hareketlinin birim zamanda yaptığı yer değiştirmedir. Hız, V sembolü ile gösterilir ve vektörel bir niceliktir. Hızın SI’da birimi m/s’dir.</p>
   </div>
+
+  <div class="card">
+    <h3>Referans Noktası</h3>
+    <p>Bir cismin konumunu belirtmek için seçilen ve hareket etmediği kabul edilen noktadır.</p>
+  </div>
+
+  <div class="card">
+    <h3>Konum</h3>
+    <p>Cismin herhangi bir anda referans noktasına göre bulunduğu yerdir. Konum x sembolü ile gösterilir ve vektörel bir niceliktir. Konumun SI’da birimi metredir (m).</p>
+  </div>
+
+  <div class="card">
+    <h3>Alınan Yol</h3>
+    <p>Cismin hareketi boyunca çizdiği yörüngenin uzunluğudur. Alınan yol x sembolü ile gösterilir ve skaler bir niceliktir. Alınan yolun SI’da birimi metredir (m).</p>
+  </div>
+
+  <div class="card">
+    <h3>Yer Değiştirme</h3>
+    <p>Hareketlinin son konumu ile ilk konumu arasındaki yönlü uzaklıktır. Yer değiştirme Δx sembolü ile gösterilir ve vektörel bir niceliktir. SI’da birimi metredir.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ortalama Hız</h3>
+    <p>Bir hareketlinin tüm hareketi boyunca yer değiştirmesinin geçen zamana oranıdır. Ortalama hız V sembolü ile gösterilir ve vektörel bir niceliktir. SI’da birimi m/s’dir.</p>
+  </div>
+
+  <div class="card">
+    <h3>Anlık Hız</h3>
+    <p>Bir hareketlinin belirli bir andaki hızıdır. Anlık hız v sembolü ile gösterilir ve vektörel bir niceliktir. SI’da birimi m/s’dir.</p>
+  </div>
+
+  <div class="card">
+    <h3>Sürat</h3>
+    <p>Hareketlinin birim zamanda aldığı yoldur. Sürat, V sembolü ile gösterilir ve skaler bir niceliktir. SI’da birimi m/s’dir.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ortalama Sürat</h3>
+    <p>Bir hareketlinin tüm hareketi boyunca toplam aldığı yolun geçen zamana oranıdır. Ortalama sürat Vₛ sembolü ile gösterilir ve skaler bir niceliktir.</p>
+  </div>
+
+  <div class="card">
+    <h3>Anlık Sürat</h3>
+    <p>Anlık hızın büyüklüğüdür. Anlık sürat v sembolü ile gösterilir ve skaler bir niceliktir. SI’da birimi m/s’dir.</p>
+  </div>
+
+  <div class="card">
+    <h3>İvme</h3>
+    <p>Hareketlinin birim zamandaki hız değişimidir. İvme a sembolü ile gösterilir ve vektörel bir niceliktir. SI’da birimi m/s²’dir.</p>
+  </div>
+
 </section>
 
-<div class="container">
-
-  <div class="card">
-    <h2>Hız</h2>
-    <p>
-      Hareketlinin birim zamanda yaptığı yer değiştirmedir.
-      V sembolü ile gösterilir ve vektörel bir büyüklüktür.
-      SI birimi m/s’dir.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Konum ve Referans Noktası</h2>
-    <p>
-      Konum, cismin referans noktasına göre bulunduğu yerdir.
-      Referans noktası ise hareketin tanımlanabilmesi için seçilen sabit noktadır.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Alınan Yol ve Yer Değiştirme</h2>
-    <p>
-      Alınan yol, cismin hareket boyunca kat ettiği toplam mesafedir.
-      Yer değiştirme ise ilk konum ile son konum arasındaki yönlü uzaklıktır.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Ortalama ve Anlık Hız</h2>
-    <p>
-      Ortalama hız, toplam yer değiştirmenin geçen zamana oranıdır.
-      Anlık hız ise cismin herhangi bir andaki hızıdır.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Sürat</h2>
-    <p>
-      Sürat, birim zamanda alınan yoldur.
-      Skaler bir büyüklüktür ve yön bilgisi içermez.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>İvme</h2>
-    <p>
-      İvme, hızın zamana göre değişimidir.
-      a sembolü ile gösterilir ve SI birimi m/s²’dir.
-    </p>
-  </div>
-
-</div>
-
-<div class="footer">
-  © 2025 Fizik Projesi
-</div>
+<footer>
+  © 2025 – 9. Sınıf Fizik Projesi
+</footer>
 
 </body>
 </html>
