@@ -5,141 +5,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hareketin Temel Kavramları</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 <style>
-:root{
-  --bg1:#020111;
-  --bg2:#090a1a;
-  --bg3:#000000;
-  --card:rgba(255,255,255,0.12);
-  --text:#ffffff;
-  --accent:#f5c86a;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-
 body{
-  background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
-  color:var(--text);
-  overflow-x:hidden;
+margin:0;
+font-family:Segoe UI, sans-serif;
+color:white;
+background:radial-gradient(circle at bottom,#020111,#000);
+overflow-x:hidden;
 }
 
-/* YILDIZLI ARKA PLAN */
+/* YILDIZLAR */
 body::before{
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background-image:
-    radial-gradient(1px 1px at 20px 30px, white, transparent),
-    radial-gradient(1px 1px at 200px 150px, white, transparent),
-    radial-gradient(1px 1px at 400px 80px, white, transparent),
-    radial-gradient(1px 1px at 600px 300px, white, transparent),
-    radial-gradient(1px 1px at 800px 120px, white, transparent);
-  animation:stars 80s linear infinite;
-  opacity:0.35;
-  z-index:-1;
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:
+radial-gradient(1px 1px at 10% 20%, white, transparent),
+radial-gradient(1px 1px at 30% 70%, white, transparent),
+radial-gradient(1px 1px at 80% 40%, white, transparent);
+animation:stars 80s linear infinite;
+opacity:0.4;
+z-index:-1;
 }
+@keyframes stars{to{transform:translateY(-800px);}}
 
-@keyframes stars{
-  from{transform:translateY(0);}
-  to{transform:translateY(-800px);}
-}
-
+/* MENU */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  padding:12px;
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.6);
+padding:12px;
+z-index:10;
 }
-
 nav ul{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  list-style:none;
+display:flex;
+justify-content:center;
+gap:25px;
+list-style:none;
 }
-
-nav a{color:var(--accent);text-decoration:none;}
+nav a{color:#f5c86a;text-decoration:none;}
 
 header{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
-
-header h1{font-size:3.2rem;}
-header h2{color:var(--accent);margin-top:10px;}
-header p{margin-top:20px;}
 
 section{padding:100px 8%;}
-
-section h2{
-  text-align:center;
-  color:var(--accent);
-  margin-bottom:50px;
-  font-size:2.2rem;
-}
+h2{text-align:center;color:#f5c86a;margin-bottom:40px;}
 
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
-  background:var(--card);
-  padding:25px;
-  border-radius:18px;
-  backdrop-filter:blur(10px);
-}
-
-.card h3{
-  color:var(--accent);
-  margin-bottom:10px;
-}
-
-canvas{
-  display:block;
-  margin:auto;
-  background:rgba(255,255,255,0.05);
-  border-radius:15px;
+background:rgba(255,255,255,0.12);
+padding:22px;
+border-radius:18px;
+backdrop-filter:blur(10px);
 }
 
 /* SÖZLER */
 .quote-group{
-  display:none;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-  opacity:0;
-  transition:opacity 2s ease;
+display:none;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+opacity:0;
+transition:opacity 2s;
 }
-
 .quote-group.active{
-  display:grid;
-  opacity:1;
+display:grid;
+opacity:1;
 }
-
 .quote{
-  background:var(--card);
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
+background:rgba(255,255,255,0.12);
+padding:20px;
+border-radius:16px;
+text-align:center;
 }
-
-.quote h3{margin-top:15px;color:var(--accent);}
 
 footer{
-  text-align:center;
-  padding:30px;
-  background:rgba(0,0,0,0.5);
+text-align:center;
+padding:30px;
+background:rgba(0,0,0,0.5);
 }
 </style>
 </head>
@@ -147,7 +102,7 @@ footer{
 <body>
 
 <audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_3c7b9c30b2.mp3">
+<source src="https://cdn.pixabay.com/audio/2022/10/30/audio_3c7b9c30b2.mp3">
 </audio>
 
 <nav>
@@ -159,80 +114,47 @@ footer{
 </nav>
 
 <header id="home">
-<h1>Fizik</h1>
-<h2>Hareketin Temel Kavramları</h2>
-<p>Harun Yahya Yurdakul – 9/B 101</p>
+<h1>Hareketin Temel Kavramları</h1>
+<p>9. Sınıf Fizik Projesi</p>
 </header>
 
 <section id="kavramlar">
-<h2>Temel Kavramlar</h2>
+<h2>Temel Fizik Terimleri (11 ADET)</h2>
+
 <div class="cards">
 
-<div class="card">
-<h3>Hız</h3>
-<p>
-Bir cismin birim zamanda yaptığı <b>yer değiştirme</b> miktarıdır.
-Vektörel bir büyüklüktür, yani hem büyüklüğü hem yönü vardır.
-SI birimi m/s’dir.
-</p>
-</div>
+<div class="card"><h3>1. Hız</h3>
+<p>Bir cismin birim zamanda yaptığı yer değiştirme miktarıdır. Vektörel büyüklüktür.</p></div>
 
-<div class="card">
-<h3>Referans Noktası</h3>
-<p>
-Bir cismin konumunun belirlenebilmesi için sabit kabul edilen noktadır.
-Hareket, seçilen referans noktasına göre tanımlanır.
-</p>
-</div>
+<div class="card"><h3>2. Referans Noktası</h3>
+<p>Cismin hareketinin veya durgunluğunun belirlendiği sabit kabul edilen noktadır.</p></div>
 
-<div class="card">
-<h3>Konum</h3>
-<p>
-Bir cismin referans noktasına göre bulunduğu yerdir.
-Vektörel bir büyüklüktür ve yön bilgisi içerir.
-</p>
-</div>
+<div class="card"><h3>3. Konum</h3>
+<p>Cismin referans noktasına göre bulunduğu yerdir. Yön bilgisi içerir.</p></div>
 
-<div class="card">
-<h3>Alınan Yol</h3>
-<p>
-Bir cismin hareketi boyunca kat ettiği toplam yol uzunluğudur.
-Skaler bir büyüklüktür ve yön bilgisi içermez.
-</p>
-</div>
+<div class="card"><h3>4. Alınan Yol</h3>
+<p>Cismin hareketi boyunca kat ettiği toplam yol uzunluğudur. Skalerdir.</p></div>
 
-<div class="card">
-<h3>Yer Değiştirme</h3>
-<p>
-Cismin başlangıç konumu ile bitiş konumu arasındaki en kısa ve yönlü uzaklıktır.
-Vektörel bir büyüklüktür.
-</p>
-</div>
+<div class="card"><h3>5. Yer Değiştirme</h3>
+<p>Başlangıç konumu ile bitiş konumu arasındaki yönlü en kısa uzaklıktır.</p></div>
 
-<div class="card">
-<h3>Ortalama Hız</h3>
-<p>
-Toplam yer değiştirmenin geçen toplam zamana oranıdır.
-Formül: Ortalama hız = Yer değiştirme / Zaman
-</p>
-</div>
+<div class="card"><h3>6. Ortalama Hız</h3>
+<p>Toplam yer değiştirmenin geçen zamana oranıdır.</p></div>
 
-<div class="card">
-<h3>Sürat</h3>
-<p>
-Bir cismin birim zamanda aldığı yol miktarıdır.
-Skaler bir büyüklüktür ve yön içermez.
-</p>
-</div>
+<div class="card"><h3>7. Sürat</h3>
+<p>Bir cismin birim zamanda aldığı yol miktarıdır. Yön içermez.</p></div>
 
-<div class="card">
-<h3>İvme</h3>
-<p>
-Bir cismin hızının zamana göre değişimidir.
-Hızlanma, yavaşlama veya yön değiştirme durumlarında ortaya çıkar.
-Vektöreldir.
-</p>
-</div>
+<div class="card"><h3>8. İvme</h3>
+<p>Hızın zamana göre değişimidir. Vektörel bir büyüklüktür.</p></div>
+
+<div class="card"><h3>9. Anlık Hız</h3>
+<p>Cismin belirli bir andaki hızıdır. Hız göstergesinin o an gösterdiği değerdir.</p></div>
+
+<div class="card"><h3>10. Doğrusal Hareket</h3>
+<p>Cismin düz bir çizgi boyunca yaptığı harekettir.</p></div>
+
+<div class="card"><h3>11. Düzgün Doğrusal Hareket</h3>
+<p>Hızın sabit olduğu, ivmenin sıfır olduğu doğrusal harekettir.</p></div>
 
 </div>
 </section>
@@ -241,21 +163,20 @@ Vektöreldir.
 <canvas id="graph" width="900" height="400"></canvas>
 </section>
 
-<section id="sozler">
-<h2>Bilim İnsanlarından İlham</h2>
+<section>
+<h2>Bilim İnsanlarından Sözler</h2>
 
 <div class="quote-group active">
-<div class="quote"><p>“Hayal gücü bilgiden daha önemlidir.”</p><h3>Albert Einstein</h3></div>
-<div class="quote"><p>“Bilim doğru sorularla ilerler.”</p><h3>Richard Feynman</h3></div>
-<div class="quote"><p>“Evren düşündüğümüzden daha gariptir.”</p><h3>Niels Bohr</h3></div>
+<div class="quote">“Hayal gücü bilgiden daha önemlidir.”<br><b>Einstein</b></div>
+<div class="quote">“Bilim merakla başlar.”<br><b>Feynman</b></div>
+<div class="quote">“Evren düşündüğümüzden tuhaftır.”<br><b>Bohr</b></div>
 </div>
 
 <div class="quote-group">
-<div class="quote"><p>“Hayatta en hakiki mürşit ilimdir.”</p><h3>Mustafa Kemal Atatürk</h3></div>
-<div class="quote"><p>“Bilim sabır işidir.”</p><h3>Cahit Arf</h3></div>
-<div class="quote"><p>“Bilgi paylaşıldıkça büyür.”</p><h3>Aziz Sancar</h3></div>
+<div class="quote">“Hayatta en hakiki mürşit ilimdir.”<br><b>Atatürk</b></div>
+<div class="quote">“Matematik sabır ister.”<br><b>Cahit Arf</b></div>
+<div class="quote">“Bilim evrenseldir.”<br><b>Aziz Sancar</b></div>
 </div>
-
 </section>
 
 <footer>© 2025 Fizik Projesi</footer>
@@ -267,10 +188,10 @@ const ctx=c.getContext("2d");
 let t=0;
 function draw(){
 ctx.clearRect(0,0,c.width,c.height);
-ctx.strokeStyle="#f5c86a";
 ctx.beginPath();
+ctx.strokeStyle="#f5c86a";
 for(let x=0;x<c.width;x++){
-let y=200+Math.sin((x+t)/50)*100;
+let y=200+Math.sin((x+t)/50)*90;
 ctx.lineTo(x,y);
 }
 ctx.stroke();
@@ -279,13 +200,13 @@ requestAnimationFrame(draw);
 }
 draw();
 
-/* 3'LÜ SÖZ GEÇİŞİ */
+/* SÖZ GEÇİŞİ */
 const groups=document.querySelectorAll(".quote-group");
-let g=0;
+let i=0;
 setInterval(()=>{
-groups[g].classList.remove("active");
-g=(g+1)%groups.length;
-groups[g].classList.add("active");
+groups[i].classList.remove("active");
+i=(i+1)%groups.length;
+groups[i].classList.add("active");
 },6500);
 </script>
 
