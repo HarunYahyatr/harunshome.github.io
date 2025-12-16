@@ -1,210 +1,217 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Hareketin Temel Kavramları</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fizik – Hareketin Temel Kavramları</title>
 
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body{
+  background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  scroll-behavior:smooth;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #050510;
-      color: #fff;
-      overflow-x: hidden;
-    }
+/* MENU */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding:15px;
+  z-index:1000;
+}
+nav ul{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  list-style:none;
+}
+nav a{
+  color:#f5c86a;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+nav a:hover{
+  color:#fff;
+  text-shadow:0 0 10px #f5c86a;
+}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 14px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
-      background: rgba(0,0,0,0.2);
-      backdrop-filter: blur(10px);
-    }
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation: fadeIn 2s ease;
+}
+header h1{
+  font-size:3rem;
+}
+header h2{
+  margin-top:15px;
+  color:#f5c86a;
+}
+header p{
+  margin-top:20px;
+  font-style:italic;
+  font-size:1.2rem;
+  opacity:0.9;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 0.95rem;
-      transition: 0.3s;
-    }
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-    nav a:hover {
-      color: #7dd3fc;
-    }
+/* SECTION */
+section{
+  padding:90px 8%;
+}
+section h2{
+  text-align:center;
+  color:#f5c86a;
+  margin-bottom:50px;
+  font-size:2.2rem;
+}
 
-    /* HERO */
-    header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:25px;
+  backdrop-filter: blur(10px);
+  transition:0.4s;
+  animation: slideUp 1s ease;
+}
+.card:hover{
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 0 25px rgba(245,200,106,0.6);
+}
+.card h3{
+  color:#f5c86a;
+  margin-bottom:10px;
+}
+.card p{
+  font-size:0.95rem;
+  line-height:1.5;
+}
 
-    header h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-    header h2 {
-      font-weight: normal;
-      color: #7dd3fc;
-      margin-top: 14px;
-    }
-
-    header p {
-      margin-top: 22px;
-      opacity: 0.8;
-    }
-
-    /* PARTICLES */
-    canvas {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-    }
-
-    /* CONTENT */
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 100px 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 26px;
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-      transition: 0.4s ease;
-      transform-style: preserve-3d;
-    }
-
-    .card:hover {
-      transform: rotateY(12deg) rotateX(6deg) scale(1.05);
-      background: rgba(255,255,255,0.15);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #7dd3fc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      opacity: 0.6;
-      font-size: 0.85rem;
-    }
-  </style>
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:rgba(0,0,0,0.4);
+  margin-top:40px;
+  font-size:0.9rem;
+}
+</style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
-
-<!-- NAV -->
 <nav>
-  <div><strong>FİZİK</strong></div>
-  <div>
-    <a href="#home">Anasayfa</a>
-    <a href="#kavramlar">Kavramlar</a>
-  </div>
+  <ul>
+    <li><a href="#anasayfa">Ana Sayfa</a></li>
+    <li><a href="#kavramlar">Kavramlar</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-<header id="home">
-  <div class="animate__animated animate__fadeInDown">
-    <h1>Hareketin Temel Kavramları</h1>
-    <h2>9. Sınıf Fizik</h2>
-    <p>Harun Yahya Yurdakul<br>9/B – 101</p>
-  </div>
+<header id="anasayfa">
+  <h1>Fizik</h1>
+  <h2>Hareketin Temel Kavramları</h2>
+  <p>“Bilim, merak edenlerin yoludur.”</p>
+  <br>
+  <p>Harun Yahya Yurdakul – 9/B 101</p>
 </header>
 
-<!-- KAVRAMLAR -->
 <section id="kavramlar">
+<h2>Temel Kavramlar</h2>
 
-  <div class="card animate__animated animate__fadeInUp"> <h3>Hız</h3><p>Yer değiştirmenin zamana oranıdır.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Referans Noktası</h3><p>Konumu belirlemek için seçilen noktadır.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Konum</h3><p>Cismin referansa göre bulunduğu yer.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Alınan Yol</h3><p>Hareket boyunca kat edilen mesafe.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Yer Değiştirme</h3><p>Başlangıç ve bitiş konumu arası.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Ortalama Hız</h3><p>Toplam yer değiştirme / zaman.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Anlık Hız</h3><p>Belirli bir andaki hız.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Sürat</h3><p>Birim zamanda alınan yol.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Ortalama Sürat</h3><p>Toplam yol / zaman.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>Anlık Sürat</h3><p>Anlık hızın büyüklüğü.</p></div>
-  <div class="card animate__animated animate__fadeInUp"> <h3>İvme</h3><p>Hızın zamana göre değişimi.</p></div>
+<div class="cards">
 
+<div class="card">
+<h3>Hız</h3>
+<p>Bir cismin birim zamanda yaptığı yer değiştirmedir. Hız vektörel bir büyüklüktür, hem büyüklüğü hem yönü vardır. v sembolü ile gösterilir. SI birimi m/s’dir.</p>
+</div>
+
+<div class="card">
+<h3>Referans Noktası</h3>
+<p>Bir cismin konumunu tanımlamak için seçilen ve hareketsiz kabul edilen noktadır. Hareket, referans noktasına göre değerlendirilir.</p>
+</div>
+
+<div class="card">
+<h3>Konum</h3>
+<p>Bir cismin herhangi bir anda referans noktasına göre bulunduğu yerdir. x sembolü ile gösterilir. Vektörel bir büyüklüktür. SI birimi metredir (m).</p>
+</div>
+
+<div class="card">
+<h3>Alınan Yol</h3>
+<p>Bir cismin hareketi boyunca izlediği yörüngenin toplam uzunluğudur. Skaler bir büyüklüktür. SI birimi metredir (m).</p>
+</div>
+
+<div class="card">
+<h3>Yer Değiştirme</h3>
+<p>Cismin ilk konumu ile son konumu arasındaki yönlü uzaklıktır. Δx sembolü ile gösterilir. Vektörel bir büyüklüktür.</p>
+</div>
+
+<div class="card">
+<h3>Ortalama Hız</h3>
+<p>Bir cismin tüm hareketi boyunca yaptığı toplam yer değiştirmenin geçen zamana oranıdır. Vektörel bir büyüklüktür.</p>
+</div>
+
+<div class="card">
+<h3>Anlık Hız</h3>
+<p>Bir cismin belirli bir andaki hızıdır. Hem büyüklüğü hem yönü vardır. SI birimi m/s’dir.</p>
+</div>
+
+<div class="card">
+<h3>Sürat</h3>
+<p>Bir cismin birim zamanda aldığı yoldur. Skaler bir büyüklüktür. Yön içermez. SI birimi m/s’dir.</p>
+</div>
+
+<div class="card">
+<h3>Ortalama Sürat</h3>
+<p>Bir cismin aldığı toplam yolun geçen toplam zamana oranıdır. Skaler bir büyüklüktür.</p>
+</div>
+
+<div class="card">
+<h3>Anlık Sürat</h3>
+<p>Anlık hızın büyüklüğüdür. Yön bilgisi içermez. Skaler bir büyüklüktür.</p>
+</div>
+
+<div class="card">
+<h3>İvme</h3>
+<p>Bir cismin hızının birim zamandaki değişimidir. a sembolü ile gösterilir. Vektörel bir büyüklüktür. SI birimi m/s²’dir.</p>
+</div>
+
+</div>
 </section>
 
 <footer>
-  © 2025 – Fizik Projesi
+© 2025 | Fizik Projesi – Hareketin Temel Kavramları
 </footer>
-
-<script>
-  const canvas = document.getElementById("bg");
-  const ctx = canvas.getContext("2d");
-  let w, h;
-  let particles = [];
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-
-  window.addEventListener("resize", resize);
-  resize();
-
-  for (let i = 0; i < 120; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 2 + 1,
-      dx: Math.random() * 0.6,
-      dy: Math.random() * 0.6
-    });
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#7dd3fc";
-    particles.forEach(p => {
-      p.x += p.dx;
-      p.y += p.dy;
-      if (p.x > w || p.y > h) {
-        p.x = 0;
-        p.y = Math.random() * h;
-      }
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-</script>
 
 </body>
 </html>
