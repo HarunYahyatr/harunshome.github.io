@@ -58,14 +58,71 @@
       padding: 20px;
       opacity: 0.7;
       font-size: 0.9rem;
+      
+      .hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  color: #f0c75e;
+  margin-top: 10px;
+}
+
+.author {
+  margin-top: 20px;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Hareket ve Kuvvet</h1>
-  <p>9. Sınıf Fizik – Temel Kavramlar</p>
+<header class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Fizik</h1>
+    <h2>Hareketin Temel Kavramları</h2>
+    <p class="author">Harun Yahya Yurdakul<br>9/B – 101</p>
+  </div>
 </header>
 
 <section class="container">
