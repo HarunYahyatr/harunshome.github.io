@@ -5,48 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fizik – Hareketin Temel Kavramları</title>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
+:root{
+  --bg1:#0f2027;
+  --bg2:#203a43;
+  --bg3:#2c5364;
+  --card:rgba(255,255,255,0.12);
+  --text:#fff;
+  --accent:#f5c86a;
+}
+
+.light{
+  --bg1:#f4f4f4;
+  --bg2:#eaeaea;
+  --bg3:#dcdcdc;
+  --card:#ffffff;
+  --text:#000;
+  --accent:#c28b00;
+}
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Segoe UI',sans-serif;
 }
 
 body{
-  background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
-  scroll-behavior:smooth;
+  background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
+  color:var(--text);
+  transition:0.5s;
 }
 
-/* MENU */
 nav{
   position:fixed;
   top:0;
   width:100%;
   background:rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px);
-  padding:15px;
+  backdrop-filter:blur(10px);
+  padding:12px;
   z-index:1000;
 }
+
 nav ul{
   display:flex;
   justify-content:center;
   gap:25px;
   list-style:none;
-}
-nav a{
-  color:#f5c86a;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-}
-nav a:hover{
-  color:#fff;
-  text-shadow:0 0 10px #f5c86a;
+  align-items:center;
 }
 
-/* HERO */
+nav a, nav button{
+  color:var(--accent);
+  background:none;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+  text-decoration:none;
+}
+
 header{
   height:100vh;
   display:flex;
@@ -54,77 +73,69 @@ header{
   justify-content:center;
   align-items:center;
   text-align:center;
-  animation: fadeIn 2s ease;
-}
-header h1{
-  font-size:3rem;
-}
-header h2{
-  margin-top:15px;
-  color:#f5c86a;
-}
-header p{
-  margin-top:20px;
-  font-style:italic;
-  font-size:1.2rem;
-  opacity:0.9;
+  animation:fade 2s ease;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
+header h1{font-size:3rem;}
+header h2{color:var(--accent);margin-top:10px;}
+header p{margin-top:20px;font-style:italic;}
 
-/* SECTION */
 section{
-  padding:90px 8%;
+  padding:100px 8%;
 }
+
 section h2{
   text-align:center;
-  color:#f5c86a;
+  color:var(--accent);
   margin-bottom:50px;
   font-size:2.2rem;
 }
 
-/* CARDS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
+
 .card{
-  background:rgba(255,255,255,0.1);
-  border-radius:16px;
+  background:var(--card);
   padding:25px;
-  backdrop-filter: blur(10px);
-  transition:0.4s;
-  animation: slideUp 1s ease;
+  border-radius:18px;
+  backdrop-filter:blur(10px);
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
 }
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 .card:hover{
-  transform:translateY(-12px) scale(1.02);
-  box-shadow:0 0 25px rgba(245,200,106,0.6);
+  transform:scale(1.05);
+  box-shadow:0 0 30px var(--accent);
 }
+
+.card i{
+  font-size:30px;
+  color:var(--accent);
+  margin-bottom:15px;
+}
+
 .card h3{
-  color:#f5c86a;
+  color:var(--accent);
   margin-bottom:10px;
 }
-.card p{
-  font-size:0.95rem;
-  line-height:1.5;
-}
 
-@keyframes slideUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
   background:rgba(0,0,0,0.4);
-  margin-top:40px;
-  font-size:0.9rem;
+}
+
+.presentation body{
+  font-size:22px;
 }
 </style>
 </head>
@@ -132,18 +143,20 @@ footer{
 <body>
 
 <nav>
-  <ul>
-    <li><a href="#anasayfa">Ana Sayfa</a></li>
-    <li><a href="#kavramlar">Kavramlar</a></li>
-  </ul>
+<ul>
+<li><a href="#home">Ana Sayfa</a></li>
+<li><a href="#kavramlar">Kavramlar</a></li>
+<li><button onclick="toggleTheme()">🌙 / ☀️</button></li>
+<li><button onclick="togglePresentation()">🎥 Sunum</button></li>
+</ul>
 </nav>
 
-<header id="anasayfa">
-  <h1>Fizik</h1>
-  <h2>Hareketin Temel Kavramları</h2>
-  <p>“Bilim, merak edenlerin yoludur.”</p>
-  <br>
-  <p>Harun Yahya Yurdakul – 9/B 101</p>
+<header id="home">
+<h1>Fizik</h1>
+<h2>Hareketin Temel Kavramları</h2>
+<p>“Bilim, merak edenlerin yoludur.”</p>
+<br>
+<p>Harun Yahya Yurdakul – 9/B 101</p>
 </header>
 
 <section id="kavramlar">
@@ -151,67 +164,55 @@ footer{
 
 <div class="cards">
 
-<div class="card">
-<h3>Hız</h3>
-<p>Bir cismin birim zamanda yaptığı yer değiştirmedir. Hız vektörel bir büyüklüktür, hem büyüklüğü hem yönü vardır. v sembolü ile gösterilir. SI birimi m/s’dir.</p>
-</div>
+<div class="card"><i class="fa-solid fa-gauge"></i><h3>Hız</h3><p>Birim zamanda yapılan yer değiştirmedir. Vektöreldir. SI birimi m/s.</p></div>
 
-<div class="card">
-<h3>Referans Noktası</h3>
-<p>Bir cismin konumunu tanımlamak için seçilen ve hareketsiz kabul edilen noktadır. Hareket, referans noktasına göre değerlendirilir.</p>
-</div>
+<div class="card"><i class="fa-solid fa-location-crosshairs"></i><h3>Referans Noktası</h3><p>Konumun belirlendiği sabit noktadır.</p></div>
 
-<div class="card">
-<h3>Konum</h3>
-<p>Bir cismin herhangi bir anda referans noktasına göre bulunduğu yerdir. x sembolü ile gösterilir. Vektörel bir büyüklüktür. SI birimi metredir (m).</p>
-</div>
+<div class="card"><i class="fa-solid fa-map-location-dot"></i><h3>Konum</h3><p>Cismin referansa göre bulunduğu yer.</p></div>
 
-<div class="card">
-<h3>Alınan Yol</h3>
-<p>Bir cismin hareketi boyunca izlediği yörüngenin toplam uzunluğudur. Skaler bir büyüklüktür. SI birimi metredir (m).</p>
-</div>
+<div class="card"><i class="fa-solid fa-road"></i><h3>Alınan Yol</h3><p>İzlenen yolun toplam uzunluğu.</p></div>
 
-<div class="card">
-<h3>Yer Değiştirme</h3>
-<p>Cismin ilk konumu ile son konumu arasındaki yönlü uzaklıktır. Δx sembolü ile gösterilir. Vektörel bir büyüklüktür.</p>
-</div>
+<div class="card"><i class="fa-solid fa-arrows-left-right"></i><h3>Yer Değiştirme</h3><p>Başlangıç ve bitiş arası yönlü uzaklık.</p></div>
 
-<div class="card">
-<h3>Ortalama Hız</h3>
-<p>Bir cismin tüm hareketi boyunca yaptığı toplam yer değiştirmenin geçen zamana oranıdır. Vektörel bir büyüklüktür.</p>
-</div>
+<div class="card"><i class="fa-solid fa-chart-line"></i><h3>Ortalama Hız</h3><p>Toplam yer değiştirme / toplam zaman.</p></div>
 
-<div class="card">
-<h3>Anlık Hız</h3>
-<p>Bir cismin belirli bir andaki hızıdır. Hem büyüklüğü hem yönü vardır. SI birimi m/s’dir.</p>
-</div>
+<div class="card"><i class="fa-solid fa-bolt"></i><h3>Anlık Hız</h3><p>Belirli bir andaki hız.</p></div>
 
-<div class="card">
-<h3>Sürat</h3>
-<p>Bir cismin birim zamanda aldığı yoldur. Skaler bir büyüklüktür. Yön içermez. SI birimi m/s’dir.</p>
-</div>
+<div class="card"><i class="fa-solid fa-stopwatch"></i><h3>Sürat</h3><p>Birim zamanda alınan yol.</p></div>
 
-<div class="card">
-<h3>Ortalama Sürat</h3>
-<p>Bir cismin aldığı toplam yolun geçen toplam zamana oranıdır. Skaler bir büyüklüktür.</p>
-</div>
+<div class="card"><i class="fa-solid fa-clock"></i><h3>Ortalama Sürat</h3><p>Toplam yol / toplam zaman.</p></div>
 
-<div class="card">
-<h3>Anlık Sürat</h3>
-<p>Anlık hızın büyüklüğüdür. Yön bilgisi içermez. Skaler bir büyüklüktür.</p>
-</div>
+<div class="card"><i class="fa-solid fa-tachometer-alt"></i><h3>Anlık Sürat</h3><p>Anlık hızın büyüklüğü.</p></div>
 
-<div class="card">
-<h3>İvme</h3>
-<p>Bir cismin hızının birim zamandaki değişimidir. a sembolü ile gösterilir. Vektörel bir büyüklüktür. SI birimi m/s²’dir.</p>
-</div>
+<div class="card"><i class="fa-solid fa-rocket"></i><h3>İvme</h3><p>Hızın zamana göre değişimi.</p></div>
 
 </div>
 </section>
 
 <footer>
-© 2025 | Fizik Projesi – Hareketin Temel Kavramları
+© 2025 Fizik Projesi
 </footer>
+
+<script>
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+const top=card.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+card.classList.add('show');
+}
+});
+});
+
+function toggleTheme(){
+document.body.classList.toggle('light');
+}
+
+function togglePresentation(){
+document.body.classList.toggle('presentation');
+document.documentElement.requestFullscreen();
+}
+</script>
 
 </body>
 </html>
