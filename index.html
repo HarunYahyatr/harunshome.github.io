@@ -13,6 +13,45 @@
       color: #fff;
     }
 
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 20, 0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .menu a:hover {
+      color: #f0c75e;
+    }
+
     /* HERO */
     .hero {
       position: relative;
@@ -56,21 +95,15 @@
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* KARTLAR */
     .container {
       max-width: 1200px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 80px 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
@@ -102,13 +135,33 @@
       opacity: 0.75;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 14px 20px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo">FİZİK</div>
+    <div class="menu">
+      <a href="#hero">Anasayfa</a>
+      <a href="#kavramlar">Kavramlar</a>
+      <a href="#footer">Alt Kısım</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>Fizik</h1>
@@ -118,68 +171,36 @@
   </header>
 
   <!-- KAVRAMLAR -->
-  <section class="container">
+  <section class="container" id="kavramlar">
 
-    <div class="card">
-      <h3>Hız</h3>
-      <p>Hareketlinin birim zamanda yaptığı yer değiştirmedir. Hız, V sembolü ile gösterilir ve vektörel bir niceliktir. SI birimi m/s’dir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Referans Noktası</h3>
-      <p>Bir cismin konumunu belirtmek için seçilen ve hareket etmediği kabul edilen noktadır.</p>
-    </div>
-
-    <div class="card">
-      <h3>Konum</h3>
-      <p>Cismin herhangi bir anda referans noktasına göre bulunduğu yerdir. x sembolü ile gösterilir, vektöreldir ve SI birimi metredir (m).</p>
-    </div>
-
-    <div class="card">
-      <h3>Alınan Yol</h3>
-      <p>Cismin hareketi boyunca çizdiği yörüngenin uzunluğudur. Skaler bir niceliktir. SI birimi metredir (m).</p>
-    </div>
-
-    <div class="card">
-      <h3>Yer Değiştirme</h3>
-      <p>Hareketlinin ilk konumu ile son konumu arasındaki yönlü uzaklıktır. Δx ile gösterilir ve vektöreldir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Ortalama Hız</h3>
-      <p>Tüm hareket boyunca yapılan yer değiştirmenin geçen zamana oranıdır. V ile gösterilir, vektöreldir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Anlık Hız</h3>
-      <p>Bir cismin belirli bir andaki hızıdır. v sembolü ile gösterilir ve vektöreldir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Sürat</h3>
-      <p>Hareketlinin birim zamanda aldığı yoldur. Skaler bir niceliktir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Ortalama Sürat</h3>
-      <p>Tüm hareket boyunca alınan toplam yolun geçen zamana oranıdır. Skaler bir niceliktir.</p>
-    </div>
-
-    <div class="card">
-      <h3>Anlık Sürat</h3>
-      <p>Anlık hızın büyüklüğüdür. Skaler bir niceliktir.</p>
-    </div>
-
-    <div class="card">
-      <h3>İvme</h3>
-      <p>Hareketlinin birim zamandaki hız değişimidir. a sembolü ile gösterilir ve vektöreldir. SI birimi m/s²’dir.</p>
-    </div>
+    <div class="card"><h3>Hız</h3><p>Hareketlinin birim zamanda yaptığı yer değiştirmedir. Vektöreldir.</p></div>
+    <div class="card"><h3>Referans Noktası</h3><p>Konumu belirtmek için seçilen sabit noktadır.</p></div>
+    <div class="card"><h3>Konum</h3><p>Cismin referans noktasına göre bulunduğu yerdir.</p></div>
+    <div class="card"><h3>Alınan Yol</h3><p>Hareket boyunca gidilen toplam yoldur.</p></div>
+    <div class="card"><h3>Yer Değiştirme</h3><p>İlk ve son konum arasındaki yönlü uzaklıktır.</p></div>
+    <div class="card"><h3>Ortalama Hız</h3><p>Yer değiştirmenin zamana oranıdır.</p></div>
+    <div class="card"><h3>Anlık Hız</h3><p>Belirli bir andaki hızdır.</p></div>
+    <div class="card"><h3>Sürat</h3><p>Birim zamanda alınan yoldur.</p></div>
+    <div class="card"><h3>Ortalama Sürat</h3><p>Toplam yolun zamana oranıdır.</p></div>
+    <div class="card"><h3>Anlık Sürat</h3><p>Anlık hızın büyüklüğüdür.</p></div>
+    <div class="card"><h3>İvme</h3><p>Hızın zamana göre değişimidir.</p></div>
 
   </section>
 
-  <footer>
+  <footer id="footer">
     © 2025 – 9. Sınıf Fizik Projesi
   </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
 
 </body>
 </html>
