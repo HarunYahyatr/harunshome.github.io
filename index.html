@@ -9,11 +9,11 @@
 
 <style>
 :root{
-  --bg1:#0f2027;
-  --bg2:#203a43;
-  --bg3:#2c5364;
+  --bg1:#020111;
+  --bg2:#090a1a;
+  --bg3:#000000;
   --card:rgba(255,255,255,0.12);
-  --text:#fff;
+  --text:#ffffff;
   --accent:#f5c86a;
 }
 
@@ -36,14 +36,37 @@
 body{
   background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
   color:var(--text);
-  transition:0.5s;
+  overflow-x:hidden;
+}
+
+/* YILDIZLI ARKA PLAN */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 200px 150px, white, transparent),
+    radial-gradient(1px 1px at 400px 80px, white, transparent),
+    radial-gradient(1px 1px at 600px 300px, white, transparent),
+    radial-gradient(1px 1px at 800px 120px, white, transparent),
+    radial-gradient(1px 1px at 1000px 400px, white, transparent);
+  animation:stars 80s linear infinite;
+  opacity:0.35;
+  z-index:-1;
+}
+
+@keyframes stars{
+  from{transform:translateY(0);}
+  to{transform:translateY(-800px);}
 }
 
 nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
   padding:12px;
   z-index:1000;
@@ -54,7 +77,6 @@ nav ul{
   justify-content:center;
   gap:25px;
   list-style:none;
-  align-items:center;
 }
 
 nav a, nav button{
@@ -73,10 +95,15 @@ header{
   justify-content:center;
   align-items:center;
   text-align:center;
-  animation:fade 2s ease;
+  animation:zoomIn 2s ease;
 }
 
-header h1{font-size:3rem;}
+@keyframes zoomIn{
+  from{opacity:0;transform:scale(1.2);}
+  to{opacity:1;transform:scale(1);}
+}
+
+header h1{font-size:3.2rem;}
 header h2{color:var(--accent);margin-top:10px;}
 header p{margin-top:20px;font-style:italic;}
 
@@ -88,7 +115,7 @@ section h2{
   text-align:center;
   color:var(--accent);
   margin-bottom:50px;
-  font-size:2.2rem;
+  font-size:2.4rem;
 }
 
 .cards{
@@ -128,24 +155,41 @@ section h2{
   margin-bottom:10px;
 }
 
+#sozler .card{
+  display:none;
+  max-width:650px;
+  margin:auto;
+  text-align:center;
+}
+
+canvas{
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+}
+
 footer{
   text-align:center;
   padding:30px;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.5);
 }
 
-.presentation body{
-  font-size:22px;
-}
+.presentation header h1{font-size:4rem;}
+.presentation .card{font-size:1.4rem;}
 </style>
 </head>
 
 <body>
 
+<!-- ARKA PLAN SES -->
+<audio id="spaceSound" loop autoplay>
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_3c7b9c30b2.mp3" type="audio/mpeg">
+</audio>
+
 <nav>
 <ul>
 <li><a href="#home">Ana Sayfa</a></li>
 <li><a href="#kavramlar">Kavramlar</a></li>
+<li><a href="#grafik">Grafik</a></li>
 <li><button onclick="toggleTheme()">🌙 / ☀️</button></li>
 <li><button onclick="togglePresentation()">🎥 Sunum</button></li>
 </ul>
@@ -154,64 +198,95 @@ footer{
 <header id="home">
 <h1>Fizik</h1>
 <h2>Hareketin Temel Kavramları</h2>
-<p>“Bilim, merak edenlerin yoludur.”</p>
+<p>“Evren, merak edenlere sırlarını açar.”</p>
 <br>
 <p>Harun Yahya Yurdakul – 9/B 101</p>
 </header>
 
 <section id="kavramlar">
 <h2>Temel Kavramlar</h2>
-
 <div class="cards">
-
-<div class="card"><i class="fa-solid fa-gauge"></i><h3>Hız</h3><p>Birim zamanda yapılan yer değiştirmedir. Vektöreldir. SI birimi m/s.</p></div>
-
+<div class="card"><i class="fa-solid fa-gauge"></i><h3>Hız</h3><p>Birim zamanda yapılan yer değiştirmedir. Vektöreldir.</p></div>
 <div class="card"><i class="fa-solid fa-location-crosshairs"></i><h3>Referans Noktası</h3><p>Konumun belirlendiği sabit noktadır.</p></div>
-
-<div class="card"><i class="fa-solid fa-map-location-dot"></i><h3>Konum</h3><p>Cismin referansa göre bulunduğu yer.</p></div>
-
+<div class="card"><i class="fa-solid fa-map-location-dot"></i><h3>Konum</h3><p>Cismin referansa göre bulunduğu yerdir.</p></div>
 <div class="card"><i class="fa-solid fa-road"></i><h3>Alınan Yol</h3><p>İzlenen yolun toplam uzunluğu.</p></div>
-
 <div class="card"><i class="fa-solid fa-arrows-left-right"></i><h3>Yer Değiştirme</h3><p>Başlangıç ve bitiş arası yönlü uzaklık.</p></div>
-
-<div class="card"><i class="fa-solid fa-chart-line"></i><h3>Ortalama Hız</h3><p>Toplam yer değiştirme / toplam zaman.</p></div>
-
-<div class="card"><i class="fa-solid fa-bolt"></i><h3>Anlık Hız</h3><p>Belirli bir andaki hız.</p></div>
-
-<div class="card"><i class="fa-solid fa-stopwatch"></i><h3>Sürat</h3><p>Birim zamanda alınan yol.</p></div>
-
-<div class="card"><i class="fa-solid fa-clock"></i><h3>Ortalama Sürat</h3><p>Toplam yol / toplam zaman.</p></div>
-
-<div class="card"><i class="fa-solid fa-tachometer-alt"></i><h3>Anlık Sürat</h3><p>Anlık hızın büyüklüğü.</p></div>
-
+<div class="card"><i class="fa-solid fa-chart-line"></i><h3>Ortalama Hız</h3><p>Yer değiştirme / zaman.</p></div>
 <div class="card"><i class="fa-solid fa-rocket"></i><h3>İvme</h3><p>Hızın zamana göre değişimi.</p></div>
-
 </div>
 </section>
 
-<footer>
-© 2025 Fizik Projesi
-</footer>
+<section id="grafik">
+<h2>Hareketli Fizik Grafiği (Hız – Zaman)</h2>
+<canvas id="graph" width="900" height="400"></canvas>
+</section>
+
+<section id="sozler">
+<h2>Bilim İnsanlarından İlham</h2>
+<div class="cards">
+<div class="card"><p>“Hayal gücü bilgiden daha önemlidir.”</p><h3>Albert Einstein</h3></div>
+<div class="card"><p>“Bilim, doğru soruları sormaktır.”</p><h3>Richard Feynman</h3></div>
+<div class="card"><p>“Evren düşündüğümüzden daha gariptir.”</p><h3>Niels Bohr</h3></div>
+<div class="card"><p>“Hayatta en hakiki mürşit ilimdir.”</p><h3>Mustafa Kemal Atatürk</h3></div>
+<div class="card"><p>“Bilim sabır işidir.”</p><h3>Cahit Arf</h3></div>
+</div>
+</section>
+
+<footer>© 2025 Fizik Projesi</footer>
 
 <script>
+/* KART ANİMASYONU */
 const cards=document.querySelectorAll('.card');
 window.addEventListener('scroll',()=>{
-cards.forEach(card=>{
-const top=card.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-card.classList.add('show');
+cards.forEach(c=>{
+if(c.getBoundingClientRect().top<window.innerHeight-100){
+c.classList.add('show');
 }
 });
 });
 
+/* SÖZ SLIDER */
+let i=0;
+const quotes=document.querySelectorAll('#sozler .card');
+setInterval(()=>{
+quotes.forEach(q=>q.style.display="none");
+quotes[i].style.display="block";
+quotes[i].classList.add("show");
+i=(i+1)%quotes.length;
+},4000);
+
+/* TEMA */
 function toggleTheme(){
-document.body.classList.toggle('light');
+document.body.classList.toggle("light");
 }
 
+/* SUNUM */
 function togglePresentation(){
-document.body.classList.toggle('presentation');
+document.body.classList.toggle("presentation");
+if(!document.fullscreenElement){
 document.documentElement.requestFullscreen();
+}else{
+document.exitFullscreen();
 }
+}
+
+/* GRAFİK */
+const canvas=document.getElementById("graph");
+const ctx=canvas.getContext("2d");
+let t=0;
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.strokeStyle="#f5c86a";
+ctx.beginPath();
+for(let x=0;x<canvas.width;x++){
+let y=200+Math.sin((x+t)/50)*100;
+ctx.lineTo(x,y);
+}
+ctx.stroke();
+t+=2;
+requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
